@@ -10,12 +10,12 @@
   </parent>
 
   <groupId>com.squareup.pagerduty</groupId>
-  <artifactId>pagerduty-incidents</artifactId>
+  <artifactId>apigee-pagerduty-incidents</artifactId>
   <version>2.0.1-SNAPSHOT</version>
 
   <name>PagerDuty Incidents</name>
-  <description>Java utility for programmatically triggering and resolving PagerDuty incidents.</description>
-  <url>http://github.com/square/pagerduty-incidents/</url>
+  <description>Forked - Java utility for programmatically triggering and resolving PagerDuty incidents.</description>
+  <url>http://github.com/njyeti/pagerduty-incidents/</url>
   <inceptionYear>2014</inceptionYear>
 
   <properties>
@@ -32,8 +32,15 @@
 
   <issueManagement>
     <system>GitHub Issues</system>
-    <url>http://github.com/square/pagerduty-incidents/issues</url>
+    <url>http://github.com/njyeti/pagerduty-incidents/issues</url>
   </issueManagement>
+  
+  <distributionManagement>
+        <repository>
+            <id>cps</id>
+            <url>${maven.repo.server}/nexus/content/groups/public/</url>
+        </repository>
+    </distributionManagement>
 
   <licenses>
     <license>
@@ -115,6 +122,14 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-release-plugin</artifactId>
+         <version>2.5.3</version>
+         <configuration>
+             <tagNameFormat>v@{project.version}</tagNameFormat>
+         </configuration>
+     </plugin>
     </plugins>
   </build>
 </project>
